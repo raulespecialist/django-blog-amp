@@ -1,5 +1,5 @@
 #!/bin/bash
-python core/manage.py migrate
+#python core/manage.py migrate
 python core/manage.py collectstatic --no-input --clear
 #python core/manage.py compilemessages -f
 

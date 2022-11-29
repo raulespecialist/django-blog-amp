@@ -4,10 +4,8 @@ services:
   django_app:
     build: .
     volumes:
-      - static:/code/static
+      - static:/code/core/static
       - .:/code
-    depends_on:
-      - db_postgres
     
   nginx:
     image: nginx:1.23.1
