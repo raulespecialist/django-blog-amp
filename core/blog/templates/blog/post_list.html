@@ -1,0 +1,6 @@
+<p>hola</p>
+{% for post in object_list %}
+<h1>{{ post.title }}</h1>
+<p>{{ post.slug }}</p>
+<p>{{ post.page.category }}</p>
+{% endfor %}

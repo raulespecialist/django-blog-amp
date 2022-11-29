@@ -1,0 +1,228 @@
+{% load static %}
+<!doctype html>
+<html amp lang="es">
+<head>
+<meta charset="utf-8">
+
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+<script async custom-element="amp-facebook-page" src="https://cdn.ampproject.org/v0/amp-facebook-page-0.1.js"></script>
+<script async custom-element="amp-facebook-like" src="https://cdn.ampproject.org/v0/amp-facebook-like-0.1.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{% if object.text %}{{ object.text|striptags|truncatechars:155 }}{% else %}POX Estado alterado de conciencia... acceso ilimitado a otra dimensión. Estar en un mismo corazón..{% endif %}">
+<meta name="author" content="Erendira Rivera Borrego">
+<meta name="generator" content="amp django">
+
+<title>Chul's Pox Artesanal</title>
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="{% static 'img/favicons/apple-touch-icon.png' %}" sizes="180x180">
+<link rel="icon" href="{% static 'img/favicons/favicon-32x32.png' %}" sizes="32x32" type="image/png">
+<link rel="icon" href="{% static 'img/favicons/favicon-16x16.png' %}" sizes="16x16" type="image/png">
+<link rel="manifest" href="{% static 'img/favicons/manifest.json' %}">
+<link rel="mask-icon" href="{% static 'img/favicons/safari-pinned-tab.svg' %}" color="#712cf9">
+<link rel="icon" href="{% static 'img/favicons/favicon.ico' %}">
+<meta name="theme-color" content="#712cf9">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@getbootstrap">
+<meta name="twitter:creator" content="@getbootstrap">
+<meta name="twitter:title" content="{% if object.title %}{{ object.title }}{% else %}Chul's Pox estado alterado de conciencia{% endif %}">
+<meta name="twitter:description" content="{% if object.text %}{{ object.text|striptags|truncatechars:155 }}{% else %}POX Estado alterado de conciencia... acceso ilimitado a otra dimensión. Estar en un mismo corazón..{% endif %}">
+<meta name="twitter:image" content="{% if object.image_cover %}{{ object.image_cover }}{% else %}/media/images/Pox1.jpg{% endif %}">
+
+<meta property="og:url" content="https://www.chuls.info{{ request.path }}">
+<meta property="og:title" content="{% if object.title %}{{ object.title }}{% else %}Chul's Pox estado alterado de conciencia{% endif %}">
+<meta property="og:description" content="{% if object.text %}{{ object.text|striptags|truncatechars:155 }}{% else %}POX Estado alterado de conciencia... acceso ilimitado a otra dimensión. Estar en un mismo corazón..{% endif %}">
+<meta property="og:type" content="article">
+<meta property="og:image:type" content="image/jpg">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="500">
+<meta property="og:image" content="{% if object.image_cover %}{{ object.image_cover }}{% else %}/media/images/Pox1.jpg{% endif %}">
+
+<style>
+  .bd-masthead2 {
+      color:rgba(255,255,255,1);
+      text-shadow: 5px 5px, 5px, red;
+      padding: 3rem 0;
+      min-height: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, rgb(25 25 25) 15%, transparent 45%), url(/static/img/bg.jpg) center center fixed;
+      background-repeat: no-repeat;
+    -webkit-background-size: auto auto, cover;
+    -moz-background-size: auto auto, cover;
+    -o-background-size: auto auto, cover;
+    background-size: auto auto, cover;
+    }
+  footer{
+    linear-gradient(0deg, rgb(0 0 0) 25%, #191919 95%);
+      background-repeat: no-repeat;
+    -webkit-background-size: auto auto;
+    -moz-background-size: auto auto;
+    -o-background-size: auto auto;
+    background-size: auto auto;
+  }
+  .bd-masthead2 h1 {
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 4em;
+    font-weight: 700;
+    color: rgb(0, 0, 0);	
+    animation: blur 2s ease-out infinite;
+    -webkit-animation: blur 2s ease-out infinite;
+  }
+  .rotate {
+    animation: rotation 45s infinite linear;
+  }
+  
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+  
+  @keyframes blur {
+    0%		{text-shadow:  0 0 10px #000; opacity:0.6;}
+    5%		{text-shadow:  0 0 5px #000;}
+    15%		{opacity: 1;}
+    20%		{text-shadow:  0 0 3px #000;}
+    80%		{text-shadow:  0 0 3px #000;}
+    85%		{opacity: 1;}
+    95%		{text-shadow:  0 0 5px #000;}
+    100%	{text-shadow:  0 0 10px #000; opacity:0.6;}
+  }
+  
+  @-webkit-keyframes blur {
+    0%		{text-shadow:  0 0 10px #000; opacity:0.6;}
+    5%		{text-shadow:  0 0 5px #000;}
+    15%		{opacity: 1;}
+    20%		{text-shadow:  0 0 0px #000;}
+    80%		{text-shadow:  0 0 0px #000;}
+    85%		{opacity: 1;}
+    95%		{text-shadow:  0 0 5px #000;}
+    100%	{text-shadow:  0 0 10px #000; opacity:0.6;}
+  }
+  /* agregar estilo del articulo */
+  main {
+      min-height: 100vh;
+  }
+  div.article, main {
+      background: rgba(0,0,0,0.9);
+      color: rgba(255,255,255,0.8);
+  }
+  div.article.post-header { margin-bottom: 30px; position: relative; }
+  div.article.h1 { color: #c9d0d4; 
+      font-family: 'Helvetica Neue', sans-serif; 
+      font-size: 46px; font-weight: 100; 
+      line-height: 50px; 
+      letter-spacing: 1px; 
+      padding: 0 0 40px; 
+      border-bottom: double #555; }
+  
+  div.article a { color: #c64119; border-bottom: 1px solid #c64119; text-decoration: none; }
+  div.article a:hover { color: #993213; border-bottom: 1px solid #993213; }
+  .date { color: #bbc3c8; display: inline-block; font-family: 'Georgia', serif; font-style: italic; font-size: 18px; line-height: 22px; margin: 0 0 20px 18px; padding: 10px 12px 8px;}
+  #btnsubmenu {
+    position: fixed;
+    bottom:0;
+    right:0;
+  }
+</style>
+</head>
+<body>
+<div class="skippy visually-hidden-focusable overflow-hidden">
+<div class="container-xl">
+    <a class="d-inline-flex p-2 m-1" href="#content">Skip to main content</a>
+    <a class="d-none d-md-inline-flex p-2 m-1" href="#bd-docs-nav">Skip to docs navigation</a>
+</div>
+</div>
+
+<header class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
+  <nav class="container-xl bd-gutter flex-wrap flex-xxl-nowrap" aria-label="Main navigation">
+    <div class="bd-navbar-toggle">
+      <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="white" stroke="white" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+        <span class="d-none fs-6 pe-1">Browse</span>
+      </button>
+    </div>
+    <a class="navbar-brand p-0 me-0 me-lg-2" href="/" aria-label="Chul">Chu'l
+        <img src="{% static 'img/logo.png' %}">
+    </a>
+    </div>
+    <div class="d-flex">
+    </div>
+
+    <div class="offcanvas-xl offcanvas-end flex-grow-1" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true" style="background:#202020;">
+      <div class="offcanvas-header px-4 pb-0">
+        <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">Menu<span class="Category"></span> </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
+      </div>
+
+      <div class="offcanvas-body p-4 pt-0 p-lg-0">
+        <hr class="text-white-50">
+        <a class="mx-auto btn btn-dark" href="/pox-posh-bebida-artesanal/">POX</a>
+        <a class="mx-auto btn btn-dark" href="/ambar">AMBAR</a>
+        <a class="mx-auto btn btn-dark" href="/galeria">GALERÍA</a>
+        <a class="mx-auto btn btn-dark" href="/procesos">PROCESOS</a>
+        <hr class=" text-white-50">
+
+        <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+          <li class="nav-item col-12 d-xl-none">
+            <amp-facebook-page
+              width="340"
+              height="500"
+              layout="fixed"
+              data-locale="es_LA"
+              data-show-facepile="true"
+              data-href="https://www.facebook.com/pox.chul/"
+            >
+            </amp-facebook-page>
+          </li>
+          <li class="nav-item col-12 d-xl-flex d-lg-none">
+            <amp-facebook-like
+              width="180"
+              height="40"
+              layout="fixed"
+              data-share="true"
+              data-colorscheme="dark"
+              data-layout="standard"
+              data-locale="es_LA"
+              data-href="https://www.facebook.com/pox.chul/"
+              >
+            </amp-facebook-like>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="container-fluid gx-0 principal">
+<!--END Menu left-->
+    <main class="">
+      {% block content %}
+      {% endblock %}
+    </main>
+    
+  </div>
+  <footer class="d-flex justify-content-around">
+
+  </footer>
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</html>

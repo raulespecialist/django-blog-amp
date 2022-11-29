@@ -1,0 +1,62 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+      <div class="bd-masthead2 mb-3 vh-90 min-vh-90 mh-90" id="content">
+        <div class="container-xxl">
+          <div class="col-md-8 mx-auto text-center">
+            <h1 class="mb-3 fw-semibold">Chu'l <br>estar en un&nbsp;mismo corazón</h1>
+            <div class="fs-6">
+              <div><a href="#more"><img class="rotate" src="{% static 'img/button.png' %}" alt="informacion"></a></div><br>
+            </div>
+        
+          </div>
+        </div>
+      </div>
+      <section class="align-middle text-center fs-3 my-5">
+        <p>Estado alterado de conciencia... acceso ilimitado a otra dimensión.</p>
+        <p>Estar en un&nbsp;mismo corazón.</p>
+        <div class="d-flex justify-content-center">
+          <img src="{% static 'img/favicons/android-chrome-192x192.png' %}" width="40" height="40" />
+      </div>
+      </section>
+      <section name="more" class="px-3">
+        {% for page in items %}
+        <div class="d-flex justify-content-center">
+          <h5>{{ page.title }}</h5>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="m-3 ">
+          <amp-img 
+            alt="{{ page.category }}"
+            src="/media/{{ page.image_cover }}" 
+            width="60"
+            height="50"
+            layout="fixed">
+          </amp-img>
+          </div>
+          <div>
+          <p>{{ page.text|striptags|truncatechars:100 }} <a href="/{{ page.slug }}/">Leer mas</a></p>
+          </div>
+        </div>
+          {% for post in page.posts.all %}
+          <div class="d-flex justify-content-center">
+            <h5>{{ post.title }}</h5>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="m-3 ">
+            <amp-img 
+              alt="{{ post.title }}"
+              src="/media/{{ post.image_cover }}" 
+              width="60"
+              height="50"
+              layout="fixed">
+            </amp-img>
+            </div>
+            <div>
+            <p>{{ post.text|striptags|truncatechars:100 }} <a href="/blog/{{ post.slug }}/">Leer mas</a></p>
+            </div>
+          </div>
+          {% endfor %}
+        {% endfor %}
+      </section>
+{% endblock %}

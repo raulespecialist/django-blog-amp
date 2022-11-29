@@ -1,0 +1,49 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div id="page" class="article mx-auto px-5 py-5 mx-0 my-0 col-lg-8 overflow-hidden">
+  <h1 class="fs-1 post-head">{{ object.title }}</h1>
+  <amp-social-share
+    type="whatsapp"
+    data-param-text="encontre este articulo creo quete puede interesar: TITLE - CANONICAL_URL"
+  >
+  </amp-social-share>
+  <amp-social-share type="facebook" aria-label="Share on Facebook" data-param-app_id="1771147716587274"></amp-social-share>
+  <amp-social-share type="system" aria-label="Share"></amp-social-share>
+  <p class="subhead metadata"></p>
+  {{ object.text | safe }}
+  {% if object.category == 'galeria' or object.category == 'procesos' %}
+  <amp-carousel id="carousel-with-lightbox" width="400" height="300" layout="responsive" type="slides" lightbox>
+    {% for image in page.images.all %}
+    <amp-img src="/media/{{ image.images }}" width="400" height="300" layout="responsive" alt="a sample image"></amp-img>
+    {% endfor %}
+  </amp-carousel>
+  {% endif %}
+  {% if object.posts.all|length >= 1 %}
+  <button id="btnsubmenu" class="btn-lg btn btn-info fixed" type="button" data-bs-toggle="offcanvas" data-bs-target="#sub-menu" aria-controls="staticBackdrop">
+    + sobre {{ object.category }}
+  </button>
+  {% endif %}
+  
+</div>
+<div class="offcanvas offcanvas-end flex-grow-1 text-bg-dark" data-bs-backdrop="static" tabindex="-1" id="sub-menu" aria-labelledby="staticBackdropLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="staticBackdropLabel">Articulos relacionados con {{ object.category }}</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav id="sub-menu" class="bg-dark list-group d-flex flex-column justify-content-around">
+        {% for post in object.posts.all %}
+
+        <div class="card text-bg-dark" style="width:80%;">
+          <img src="/media/{{ post.image_cover }}" class="card-img-top" alt="{{ post.title }}">
+          <div class="card-img-overlay">
+            <p class="card-text"><a href="/blog/{{ post.slug }}" class="btn btn-info list-group-item-action" title="{{ post.title }}">
+              {{ post.title }}</a></p>
+          </div>
+        </div>
+        {% endfor %}
+    </nav>
+  </div>
+</div>
+{% endblock %}
