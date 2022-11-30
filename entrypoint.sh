@@ -5,6 +5,6 @@ python core/manage.py collectstatic --no-input --clear
 
 export DJANGO_SETTINGS_MODULE=core.settings
 
-exec gunicorn -c config/gunicorn/conf.py --bind :8000 --chdir core core.wsgi:application
+exec gunicorn -c config/gunicorn/conf.py --bind :8000 --reload --chdir core core.wsgi:application
 
 exec "$@"
