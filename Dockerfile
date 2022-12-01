@@ -17,7 +17,7 @@ RUN pip install -r requirements.txt
 
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /code
 USER appuser
-
+RUN chown -R appuser:appuser /app
 RUN chmod 777 /code
 # RUN python /code/data/import_review.py
 
