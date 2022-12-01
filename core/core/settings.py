@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-0whmsp(63y2(kvs_*yx$#lj%2hj%+idyyq3cy7jhd7@em)i6d9
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://*.chuls.info']
 
 
 # Application definition
