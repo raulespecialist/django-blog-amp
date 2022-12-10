@@ -16,7 +16,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /code
-USER appuser
+USER root
 RUN chmod 777 /code/core/db.sqlite3
 RUN chown appuser:appuser /code/core/db.sqlite3
 COPY core/media/ /code/core/media/
