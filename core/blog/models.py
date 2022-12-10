@@ -1,3 +1,4 @@
+import os
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
@@ -47,6 +48,11 @@ class Page(models.Model):
 class PageImage(models.Model):
     page = models.ForeignKey(Page, default=None, on_delete=models.CASCADE, related_name="images")
     images = models.ImageField(upload_to = 'images/', blank=True)
+
+    def filename_minus_extension(self): 
+        basename, extension = os.path.splitext(os.path.basename(self.images.name)) 
+        return basename
+
 
     def __str__(self):
         return self.page.title

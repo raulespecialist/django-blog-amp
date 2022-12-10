@@ -1,10 +1,11 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% load webp %}
 {% block content %}
 <div id="page" class="article mx-auto px-5 py-5 mx-0 my-0 col-lg-8 overflow-hidden">
   <h1 class="fs-1 post-head">{{ object.title }}</h1>
   <div class="d-flex justify-content-end">
-  <span class="fs-3 fw-light lh-1">COMPARTIR | </span>
+  <span class="fs-4 fw-light lh-1">COMPARTIR | </span>
   <amp-social-share
     type="whatsapp"
     data-param-text="encontre este articulo creo quete puede interesar: TITLE - CANONICAL_URL"
@@ -16,9 +17,22 @@
   <p class="subhead metadata"></p>
   {{ object.text | safe }}
   {% if object.category == 'galeria' or object.category == 'procesos' or object.category == 'productos' %}
+  {% for image in object.images.all %}
+    {% endfor %}
   <amp-carousel id="carousel-with-lightbox" width="400" height="300" layout="responsive" type="slides" lightbox>
-    {% for image in page.images.all %}
-    <amp-img src="/media/{{ image.images }}" width="400" height="300" layout="responsive" alt="a sample image"></amp-img>
+    {% for image in object.images.all %}
+    <amp-img alt="{{ object.title }}"
+    width="{{ image.images.width }}"
+    height="{{ image.images.height }}"
+    layout="responsive" 
+    src="/media/{{ image.images.name | webp }}">
+    <amp-img alt="{{ object.title }}"
+      fallback
+      width="{{ image.images.width }}"
+      height="{{ image.images.height }}"
+      layout="responsive" 
+      src="/media/{{ image.images }}"></amp-img>
+    </amp-img>
     {% endfor %}
   </amp-carousel>
   {% endif %}
@@ -39,7 +53,16 @@
         {% for post in object.posts.all %}
 
         <div class="card text-bg-dark" style="width:80%;">
-          <img src="/media/{{ post.image_cover }}" class="card-img-top" alt="{{ post.title }}">
+          <amp-img alt="{{ post.title }}"
+          width="{{ post.image_cover.width }}"
+          layout="responsive" 
+          src="/media/{{ post.image_cover | webp }}">
+          <amp-img alt="{{ post.title }}"
+            fallback
+            width="{{ post.image_cover.width }}"
+            layout="responsive" 
+            src="/media/{{ post.image_cover }}"></amp-img>
+          </amp-img>
           <div class="card-img-overlay">
             <p class="card-text"><a href="/blog/{{ post.slug }}" class="btn btn-info list-group-item-action" title="{{ post.title }}">
               {{ post.title }}</a></p>

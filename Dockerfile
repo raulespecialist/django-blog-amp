@@ -20,6 +20,7 @@ USER root
 RUN chown -R appuser /code
 RUN chmod -R 777 /code
 RUN chmod 777 /code/core/db.sqlite3
+RUN chown appuser:appuser /code/core/db.sqlite3
 
 # RUN python /code/data/import_review.py
 
