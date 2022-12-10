@@ -12,11 +12,11 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /code
 COPY . /code/
-
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /code
-USER root
+USER appuser
 RUN chown -R appuser /code
 RUN chmod -R 777 /code
 RUN chmod 777 /code/core/db.sqlite3
