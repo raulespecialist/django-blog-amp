@@ -56,7 +56,7 @@
           <amp-img alt="{{ post.title }}"
           width="{{ post.image_cover.width }}"
           layout="responsive" 
-          src="/media/{{ post.image_cover | webp }}">
+          src="/media/{{ post.image_cover.name | webp }}">
           <amp-img alt="{{ post.title }}"
             fallback
             width="{{ post.image_cover.width }}"
