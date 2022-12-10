@@ -3,13 +3,16 @@
 {% block content %}
 <div id="post" class="article mx-auto px-5 py-5 mx-0 my-0 col-lg-8 overflow-hidden">
   <h1 class="fs-1 post-head">{{ object.title }}</h1>
-  <amp-social-share
-    type="whatsapp"
-    data-param-text="encontre este articulo creo quete puede interesar: TITLE - CANONICAL_URL"
-  >
-  </amp-social-share>
-  <amp-social-share type="facebook" aria-label="Share on Facebook" data-param-app_id="1771147716587274"></amp-social-share>
-  <amp-social-share type="system" aria-label="Share"></amp-social-share>
+  <div class="d-flex justify-content-end">
+    <span class="fs-3 fw-light lh-1">COMPARTIR | </span>
+    <amp-social-share
+      type="whatsapp"
+      data-param-text="encontre este articulo creo quete puede interesar: TITLE - CANONICAL_URL"
+    >
+    </amp-social-share>
+    <amp-social-share type="facebook" aria-label="Share on Facebook" data-param-app_id="1771147716587274"></amp-social-share>
+    <amp-social-share type="system" aria-label="Share"></amp-social-share>
+  </div>
   <p class="date">{{ object.created_date }}</p>
   <br>
   {{ object.text | safe }}

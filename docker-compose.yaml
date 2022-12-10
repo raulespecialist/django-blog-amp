@@ -5,6 +5,7 @@ services:
     build: .
     volumes:
       - static:/code/core/static
+      - media:/code/core/media
       - .:/code
     
   nginx:
@@ -13,10 +14,12 @@ services:
       - 8000:80
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
-      - static:/code/static
+      - static:/code/core/static
+      - media:/code/core/media
     depends_on:
       - django_app
 
 volumes:
   .:
   static:
+  media:
