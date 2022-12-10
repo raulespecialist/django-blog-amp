@@ -17,10 +17,9 @@ RUN pip install -r requirements.txt
 
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /code
 USER appuser
-RUN chown -R appuser /code
-RUN chmod -R 777 /code
 RUN chmod 777 /code/core/db.sqlite3
 RUN chown appuser:appuser /code/core/db.sqlite3
+COPY core/media/ /code/core/media/
 
 # RUN python /code/data/import_review.py
 
