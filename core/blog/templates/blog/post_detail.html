@@ -27,7 +27,7 @@
     <h5 class="offcanvas-title" id="staticBackdropLabel">Articulos relacionados con {{ object.page.category }}</h5>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">
+  <div class="offcanvas-body"> 
     <nav id="sub-menu" class="bg-dark list-group d-flex flex-column justify-content-around">
         {% for post in object.page.posts.all %}
         <div class="card text-bg-dark" style="width:80%;">
