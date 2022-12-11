@@ -31,16 +31,7 @@
     <nav id="sub-menu" class="bg-dark list-group d-flex flex-column justify-content-around">
         {% for post in object.page.posts.all %}
         <div class="card text-bg-dark" style="width:80%;">
-          <amp-img alt="{{ post.title }}"
-          width="{{ post.image_cover.width }}"
-          layout="responsive" 
-          src="/media/{{ post.image_cover.name | webp }}">
-          <amp-img alt="{{ post.title }}"
-            fallback
-            width="{{ post.image_cover.width }}"
-            layout="responsive" 
-            src="/media/{{ post.image_cover }}"></amp-img>
-          </amp-img>
+          <img src="/media/{{ post.image_cover.name | webp }}" class="card-img-top" alt="{{ post.title }}">
           <div class="card-img-overlay">
             <p class="card-text"><a href="/blog/{{ post.slug }}" class="btn btn-info list-group-item-action" title="{{ post.title }}">
               {{ post.title }}</a></p>
