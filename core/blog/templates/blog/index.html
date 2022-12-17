@@ -26,8 +26,8 @@
         <amp-carousel width="400" height="300" layout="responsive" type="slides" autoplay delay="2000" role="region" aria-label="Productos">
           {% for image in items.3.images.all %}
           <amp-img alt="{{ page.title }}"
-          width="{{ image.images.width }}"
-          height="{{ image.images.height }}"
+          width="{% widthratio image.images.width 2 1 %}"
+          height="{% widthratio image.images.width 2 1 %}"
           layout="responsive" 
           src="/media/{{ image.images.name | webp }}"></amp-img>
           {% endfor %}
