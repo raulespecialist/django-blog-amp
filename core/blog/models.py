@@ -48,6 +48,7 @@ class Page(models.Model):
 class PageImage(models.Model):
     page = models.ForeignKey(Page, default=None, on_delete=models.CASCADE, related_name="images")
     images = models.ImageField(upload_to = 'images/', blank=True)
+    text = models.CharField(max_length=100, default='')
 
     def filename_minus_extension(self): 
         basename, extension = os.path.splitext(os.path.basename(self.images.name)) 
@@ -85,6 +86,7 @@ class Post(models.Model):
 class PostImage(models.Model):
     post = models.ForeignKey(Post, default=None, on_delete=models.CASCADE, related_name="images")
     images = models.ImageField(upload_to = 'images/')
+    text = models.CharField(max_length=100, default='')
  
     def __str__(self):
         return self.post.title

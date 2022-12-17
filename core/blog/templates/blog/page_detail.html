@@ -27,14 +27,14 @@
   <amp-carousel id="carousel-with-lightbox" width="400" height="300" layout="responsive" type="slides" lightbox>
     {% for image in object.images.all %}
     <amp-img alt="{{ object.title }}"
-    width="{{ image.images.width }}"
-    height="{{ image.images.height }}"
+    width="{% widthratio image.images.width B 2 %}"
+    height="{% widthratio image.images.height B 2 %}"
     layout="responsive" 
     src="/media/{{ image.images.name | webp }}">
     <amp-img alt="{{ object.title }}"
       fallback
-      width="{{ image.images.width }}"
-      height="{{ image.images.height }}"
+      width="{% widthratio image.images.width B 2 %}"
+      height="{% widthratio image.images.height B 2 %}"
       layout="responsive" 
       src="/media/{{ image.images }}"></amp-img>
     </amp-img>
