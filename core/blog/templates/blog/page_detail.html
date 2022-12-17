@@ -19,6 +19,11 @@
   {% if object.category == 'galeria' or object.category == 'procesos' or object.category == 'productos' %}
   {% for image in object.images.all %}
     {% endfor %}
+  <amp-selector id="carouselWithPreviewSelector" class="carousel-preview" on="select:carousel-with-lightbox.goToSlide(index=event.targetOption)" layout="container">
+    {% for image in object.images.all %}
+    <amp-img option="{{ forloop.counter0 }}" selected src="/media/{{ image.images.name | webp }}" width="120" height="80" alt="{{ objrct.title }}"></amp-img>
+    {% endfor %}
+  </amp-selector>
   <amp-carousel id="carousel-with-lightbox" width="400" height="300" layout="responsive" type="slides" lightbox>
     {% for image in object.images.all %}
     <amp-img alt="{{ object.title }}"

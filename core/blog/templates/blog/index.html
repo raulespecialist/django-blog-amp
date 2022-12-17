@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% load webp %}
 {% block content %}
       <div class="bd-masthead2 mb-3 vh-90 min-vh-90 mh-90" id="content">
         <div class="container-xxl">
@@ -20,6 +21,22 @@
       </div>
       </section>
       <section name="more" id="more" class="px-3">
+        {% if items.3.category == 'productos' %}
+        <a href="/productos/" title="Productos">
+        <amp-carousel width="400" height="300" layout="responsive" type="slides" autoplay delay="2000" role="region" aria-label="Productos">
+          {% for image in items.3.images.all %}
+          <amp-img alt="{{ page.title }}"
+          width="{{ image.images.width }}"
+          height="{{ image.images.height }}"
+          layout="responsive" 
+          src="/media/{{ image.images.name | webp }}"></amp-img>
+          {% endfor %}
+        </amp-carousel>
+        </a>
+        <div class="d-flex justify-content-around my-5">
+        {{ items.3.text | safe }}
+        </div>
+        {% endif %}
         {% for page in items %}
         <div class="d-flex justify-content-center">
           <h5>{{ page.title }}</h5>
